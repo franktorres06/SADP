@@ -1,0 +1,323 @@
+/* ============================
+   ESTILO BASE GENERAL
+============================ */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* ============================
+   CABECERA
+============================ */
+header {
+  background-color: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem); /* Autoajuste */
+  letter-spacing: 0.5px;
+}
+
+/* ============================
+   MENÚ DE PESTAÑAS
+============================ */
+.menu {
+  display: flex;
+  justify-content: left;
+  background-color: #004c99;
+  overflow: hidden;
+}
+
+.menu .tablink {
+  background-color: #004c99;
+  border: none;
+  color: white;
+  font-size: 15px;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu .tablink:hover {
+  background-color: #0096c7;
+}
+
+.menu .tablink.active {
+  background-color: #00b4d8;
+  color: white;
+}
+
+/* ============================
+   CONTENEDORES DE PESTAÑAS
+============================ */
+.tabcontent {
+  display: none;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.tabcontent.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================
+   TITULOS DE SECCIONES
+============================ */
+section h2 {
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #0077b6;
+}
+
+/* ============================
+   TABLAS DE DATOS
+============================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+  table-layout: fixed;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+}
+
+th, td {
+  padding: 10px 14px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #0077b6;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tr:hover {
+  background-color: #e3f2fd;
+}
+
+/* ============================
+   GRÁFICOS
+============================ */
+/* ============================
+   CONTENEDOR DE GRÁFICOS FIJOS
+============================ */
+.grafico-container {
+  width: 100%;
+  max-width: 1800px;   /* puedes ajustar el ancho máximo */
+  height: 400px;       /* fija la altura del gráfico */
+  margin: 2rem auto;   /* centrado y con separación */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.grafico-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+/* ============================
+   FORMULARIOS DE PEGADO
+============================ */
+.formLinea {
+  background: #ffffff;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.formLinea label {
+  font-weight: 600;
+  color: #004c99;
+}
+
+/* textarea más compacto */
+.formLinea textarea {
+  width: 97,5%;
+  min-height: 50px;
+  max-height: 150px;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-family: monospace;
+  background-color: #f9f9f9;
+  transition: border 0.2s;
+}
+
+.formLinea textarea:focus {
+  border-color: #0077b6;
+  outline: none;
+}
+
+/* ============================
+   BOTONES PEGADO / IMPORT / EXPORT
+============================ */
+.buttonGroup {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btnGuardar, .btnJSON {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btnGuardar {
+  background-color: #0077b6;
+  color: white;
+}
+
+.btnGuardar:hover {
+  background-color: #0096c7;
+  transform: translateY(-1px);
+}
+
+.btnJSON {
+  background-color: #00b4d8;
+  color: white;
+}
+
+.btnJSON:hover {
+  background-color: #0096c7;
+  transform: translateY(-1px);
+}
+
+/* ============================
+   PIE DE PÁGINA
+============================ */
+footer {
+  text-align: center;
+  padding: 0.25rem;
+  background-color: #0077b6;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* ============================
+   RESPONSIVE GENERAL
+============================ */
+@media (max-width: 768px) {
+  .menu .tablink {
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+
+  th, td {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+
+  .formLinea textarea {
+    min-height: 70px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+}
+/* ESTILO DE FILTROS */
+.filtros {
+  background: #ffffff;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filtro-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filtro-group label {
+  font-weight: 600;
+  color: #004c99;
+}
+
+.filtro-group input {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 100px;
+}
+
+/* ============================
+   ESTILO CONTADORES DE PRODUCCIÓN*/
+
+.contadorProduccion {
+  background: #00b4d8;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 150px;
+  font-weight: bold;
+}
+
+.contadorProduccion h3 {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.contadorProduccion p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+#tablaIncidenciasDetalle table {
+  width: 100%;
+  table-layout: auto; /* Ajusta columnas según contenido */
+  border-collapse: collapse;
+}
+
+#tablaIncidenciasDetalle th,
+#tablaIncidenciasDetalle td {
+  padding: 6px 8px;
+  text-align: left;
+  white-space: normal;  /* Permite que el texto se envuelva */
+  word-break: break-word; /* Rompe palabras largas si es necesario */
+}
+

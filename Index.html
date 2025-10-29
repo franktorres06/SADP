@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Ejemplo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Dashboard de Producción (Ejemplo)</h1>
+</header>
+
+<!-- Menú de pestañas -->
+<div class="menu">
+  <button class="tablink active" onclick="openTab(event, 'produccion')">Producción</button>
+  <button class="tablink" onclick="openTab(event, 'incidencias')">Incidencias</button>
+  <button class="tablink" onclick="openTab(event, 'filtros')">Filtros</button>
+</div>
+
+<!-- Contenido de pestañas -->
+<div id="produccion" class="tabcontent active">
+  <section>
+    <h2>Contadores de Producción</h2>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+      <div class="contadorProduccion">
+        <h3>Líneas Activas</h3>
+        <p id="lineasActivas">5</p>
+      </div>
+      <div class="contadorProduccion">
+        <h3>Producción Total</h3>
+        <p id="produccionTotal">1200</p>
+      </div>
+      <div class="contadorProduccion">
+        <h3>Incidencias</h3>
+        <p id="incidenciasTotal">3</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="incidencias" class="tabcontent">
+  <section>
+    <h2>Tabla de Incidencias</h2>
+    <div id="tablaIncidenciasDetalle">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="incidenciasBody">
+          <!-- JS llenará la tabla -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div id="filtros" class="tabcontent">
+  <section>
+    <h2>Filtros de Ejemplo</h2>
+    <div class="filtros">
+      <div class="filtro-group">
+        <label for="filtroEstado">Estado:</label>
+        <select id="filtroEstado" onchange="filtrarIncidencias()">
+          <option value="Todos">Todos</option>
+          <option value="Abierta">Abierta</option>
+          <option value="Cerrada">Cerrada</option>
+        </select>
+      </div>
+      <div class="filtro-group">
+        <label for="filtroFecha">Fecha:</label>
+        <input type="date" id="filtroFecha" onchange="filtrarIncidencias()">
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Dashboard de Ejemplo - GitHub Pages
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
